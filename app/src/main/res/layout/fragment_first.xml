@@ -6,16 +6,47 @@
 
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".FirstFragment">
+        android:orientation="vertical" >
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/first_fragment_tv_message"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="60sp" />
 
-    </FrameLayout>
+        <EditText
+            android:id="@+id/first_fragment_et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/name_hint"
+            android:inputType="textPersonName"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/first_fragment_bt_hello"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HELLO"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/first_fragment_bt_bye"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BYE"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/first_fragment_tv_clicks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clicks_text"
+            android:textAlignment="center"
+            android:textSize="34sp" />
+    </LinearLayout>
 </layout>

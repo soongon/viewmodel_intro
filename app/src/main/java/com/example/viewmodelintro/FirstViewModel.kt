@@ -4,6 +4,10 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 
 class FirstViewModel: ViewModel() {
+
+    var clicks = 0
+    var messages = ""
+
     init {
         Log.i("FirstViewModel", "first viewmodel created..")
     }

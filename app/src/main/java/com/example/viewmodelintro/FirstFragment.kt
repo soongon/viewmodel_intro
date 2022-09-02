@@ -14,6 +14,8 @@ class FirstFragment : Fragment() {
     private lateinit var viewModel: FirstViewModel
     private lateinit var binding: FragmentFirstBinding
 
+    // private var clicks = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,8 +27,28 @@ class FirstFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(FirstViewModel::class.java)
 
+        // set event listener
+        binding.firstFragmentBtHello.setOnClickListener { hello() }
+        binding.firstFragmentBtBye.setOnClickListener { bye() }
 
         return binding.root
+    }
+    private fun hello() {
+        val yourName = binding.firstFragmentEtName.text.toString()
+        viewModel.messages = "안녕 $yourName 님"
+        viewModel.clicks++
+        updateUI()
+    }
+
+    private fun bye() {
+        val yourName = binding.firstFragmentEtName.text.toString()
+        viewModel.messages = "잘가요 $yourName 님"
+        viewModel.clicks++
+        updateUI()
+    }
+    private fun updateUI() {
+        binding.firstFragmentTvMessage.text = viewModel.messages
+        binding.firstFragmentTvClicks.text = "${viewModel.clicks} time(s) clicked."
     }
 
 }
