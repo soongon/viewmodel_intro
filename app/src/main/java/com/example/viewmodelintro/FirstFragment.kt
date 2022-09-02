@@ -26,16 +26,19 @@ class FirstFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_first, container, false)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_first, container, false)
-
         viewModel = ViewModelProvider(this).get(FirstViewModel::class.java)
 
-        // observer setting
-        viewModel.messages.observe(viewLifecycleOwner, Observer {
-            theMessage -> binding.firstFragmentTvMessage.text = theMessage
-        })
-        viewModel.clicks.observe(viewLifecycleOwner, Observer {
-            newClicks -> binding.firstFragmentTvClicks.text = "$newClicks time(s) 클릭"
-        })
+        //using data binding
+        binding.firstViewModel = viewModel
+        binding.lifecycleOwner = this
+
+        // observer setting (old way)
+//        viewModel.messages.observe(viewLifecycleOwner, Observer {
+//            theMessage -> binding.firstFragmentTvMessage.text = theMessage
+//        })
+//        viewModel.clicks.observe(viewLifecycleOwner, Observer {
+//            newClicks -> binding.firstFragmentTvClicks.text = "$newClicks time(s) 클릭"
+//        })
 
         // set event listener
         binding.firstFragmentBtHello.setOnClickListener {

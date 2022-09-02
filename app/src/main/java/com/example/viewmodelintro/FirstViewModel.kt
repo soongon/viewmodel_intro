@@ -1,13 +1,17 @@
 package com.example.viewmodelintro
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class FirstViewModel: ViewModel() {
 
     val clicks = MutableLiveData<Int>()
+    //val clicks: LiveData<Int> get() = _clicks
+
     val messages = MutableLiveData<String>()
+    //val messages: LiveData<String> get() = _messages
 
     init {
         clicks.value = 0
