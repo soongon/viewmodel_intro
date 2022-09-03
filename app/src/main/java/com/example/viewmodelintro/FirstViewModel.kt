@@ -7,15 +7,15 @@ import androidx.lifecycle.ViewModel
 
 class FirstViewModel: ViewModel() {
 
-    val clicks = MutableLiveData<Int>()
-    //val clicks: LiveData<Int> get() = _clicks
+    private val _clicks = MutableLiveData<Int>()
+    val clicks: LiveData<Int> get() = _clicks
 
-    val messages = MutableLiveData<String>()
-    //val messages: LiveData<String> get() = _messages
+    private val _messages = MutableLiveData<String>()
+    val messages: LiveData<String> get() = _messages
 
     init {
-        clicks.value = 0
-        messages.value = ""
+        _clicks.value = 0
+        _messages.value = ""
         Log.i("FirstViewModel", "first viewmodel created..")
     }
 
@@ -25,11 +25,11 @@ class FirstViewModel: ViewModel() {
     }
 
     fun hello(name: String) {
-        messages.value = "hi $name"
-        clicks.value = clicks.value?.plus(1)
+        _messages.value = "hi $name"
+        _clicks.value = clicks.value?.plus(1)
     }
     fun bye(name: String) {
-        messages.value = "bye $name"
-        clicks.value = clicks.value?.plus(1)
+        _messages.value = "bye $name"
+        _clicks.value = clicks.value?.plus(1)
     }
 }
